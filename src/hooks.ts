@@ -36,8 +36,35 @@ export const useDimension = () => {
         }
         return () => {
             window.onresize = () => {
-                
+
             }
         }
     })
+    return {
+        w, 
+        h
+    }
+}
+
+export const useStyle = (w : number, h : number, scale : number) => {
+    const size : number = Math.min(w, h) / 10 
+    const position = 'absolute'
+    const sf : number = Math.sin(scale * Math.PI)
+    const left = `${0}px`
+    const top = `${(h - size) * (1 - sf)}px`
+    const width = `${size}px`
+    const height = `${size + (h - size) * sf}px`
+    const background = 'indigo'
+    return {
+        blockStyle() {
+            return {
+                position, 
+                left, 
+                top, 
+                width, 
+                height,
+                background
+            }
+        }
+    }
 }
