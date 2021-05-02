@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, CSSProperties} from 'react'
 
 const scGap = 0.02 
 const delay = 20 
@@ -56,7 +56,7 @@ export const useStyle = (w : number, h : number, scale : number) => {
     const height = `${size + (h - size) * sf}px`
     const background = 'indigo'
     return {
-        blockStyle() {
+        blockStyle() : CSSProperties {
             return {
                 position, 
                 left, 
